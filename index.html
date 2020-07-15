@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./svg/logo-favicon.png"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Password Generator</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="logo">
+            <img src="./svg/new-logo-alt-2.svg" alt="logo">
+            <h3 class="subtitle">Password Generator</h3>
+        </div>
+        
+        <form action="" class="app" id="app">
+            <div class="box character-num">
+                <div class="wrap">
+                    <label for="character-num">Número de carácteres</label>
+                </div>
+                <div class="wrap btns">
+                    <div class="wrap-btn">
+                        <button class="btn minus-btn" id="minus-btn"><i class="fas fa-minus"></i></button>
+                    </div>
+                    <div class="wrap-input">
+                        <input type="text" class="num-input" id="num-input" value="12" readonly>
+                    </div>
+                    <div class="wrap-btn">
+                        <button class="btn plus-btn" id="plus-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="box symbols">
+                <div class="wrap">
+                    <label for="" class="symbols">Incluir Símbolos?</label>
+                </div>
+                <div class="wrap">
+                    <button class="btn symbol-btn control-btn" id="symbol-btn"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+            <div class="box numbers">
+                <div class="wrap">
+                    <label for="" class="number">Incluir Números?</label>
+                </div>
+                <div class="wrap">
+                    <button class="btn number-btn control-btn" id="number-btn"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+            <div class="box capitals">
+                <div class="wrap">
+                    <label for="" class="capital">Incluir Mayúsculas?</label>
+                </div>
+                <div class="wrap">
+                    <button class="btn capital-btn control-btn" id="capital-btn"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+            <div class="box generate">
+                <div class="wrap">
+                    <button class="btn generate-btn" id="generate-btn">Generar<i class="fas fa-lock"></i></button>
+                </div>
+                <div class="wrap" id="pass-box">
+                    <input type="text" class="generate-input" id="generate-input" value="NewPassword" readonly>
+                </div>
+            </div>
+            <div class="box alert">
+                <div class="wrap">
+                    <div class="copy-alert" id="copy-alert">
+                        <p><i class="fas fa-copy"></i> Texto copiado</p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="./js/app.js"></script>
+</body>
+</html>

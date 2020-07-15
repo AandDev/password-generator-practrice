@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+*::selection {
+    /* ::selection sirve para dar estilo a lo que se subraya en la pagina */
+    background-color: var(--main-d);
+    color: #fff;
+}
+
+*::-moz-selection {
+    background-color: var(--main-d);
+    color: #fff;
+}
+
+:root {
+    --main: #00b333;
+    --main-d: #097728;
+    --main-l: #14f855;
+    --dark: #161616;
+}
+
+body {
+    background-color: var(--dark);
+    color: #fff;
+}
+
+.container {
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+    height: 100vh;
+}
+
+.logo {
+    height: 180px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.logo .subtitle {
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+.box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.wrap {
+    width: 50%;
+}
+
+.app label {
+    line-height: 40px;
+}
+
+.app input {
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+}
+
+.app .btn {
+    width: 100%;
+    background-color: var(--main);
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.app .btn:hover {
+    background-color: var(--main-l);
+    box-shadow: 0 0 3px 1px #fff;
+}
+
+.app .btn.false {
+    background-color: var(--main-d);
+}
+
+.app .character-num .btns div {
+    width: 100%;
+}
+
+.app .character-num .btns div:nth-child(1) button {
+    border-radius: 4px 0 0 4px;
+}
+
+.app .character-num input {
+    height: 40px;
+    width: 100%;
+    cursor: default;
+    background-color: var(--main-d);
+    color: #fff;
+}
+
+.app .character-num .btns div:nth-child(3) button {
+    border-radius: 0 4px 4px 0;
+}
+
+.app .character-num .btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.app .box.generate {
+    margin-bottom: 10px;
+}
+
+.app .box.generate .wrap:nth-child(1) {
+    width: 30%;
+}
+
+.app .box.generate .wrap:nth-child(2) {
+    width: 65%;
+}
+
+.app .box.generate .wrap .generate-btn {
+    position: relative;
+    line-height: 40px;
+}
+
+/* -------------------------- */
+
+.app .box.generate .wrap .generate-btn.animate {
+    animation-name: generate;
+    animation-duration: 0.25s;
+    animation-timing-function: ease;
+}
+
+/* -------------------------- */
+
+.app .box.generate .wrap .generate-btn i {
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.app .box.generate .wrap .generate-btn::after {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--main);
+    position: absolute;
+    top: 13px;
+    right: -7px;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.app .box.generate #pass-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.app .box.generate .wrap .generate-btn:hover::after {
+    background-color: var(--main-l);
+}
+
+.app .box.generate .wrap .generate-input {
+    height: 40px;
+    background-color: var(--dark);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.app .box.generate .wrap .generate-input:hover {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.app .box.generate input::selection {
+    background-color: var(--dark);
+}
+.app .box.generate input::-moz-selection {
+    background-color: var(--dark);
+}
+
+.app .box.alert {
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.app .box.alert .wrap {
+    width: 65%;
+}
+
+.app .box.alert .copy-alert {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.app .box.alert .copy-alert.active {
+    opacity: 1;
+}
+
+span {
+    position: absolute;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: span 1s linear infinite;
+}
+
+@keyframes generate {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes span {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.2;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .logo {
+        height: 130px;
+    }
+
+    .app .box {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .app .box .wrap {
+        width: 100%;
+    }
+
+    .app .box.generate {
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    .app .box.generate .wrap:nth-child(1) {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .app .box.generate .wrap:nth-child(2) {
+        width: 100%;
+    }
+
+    .app .box.generate .generate-btn,
+    .app .box.generate .generate-input {
+        width: 100%;
+    }
+
+    .app .box.generate .wrap .generate-btn::after {
+        top: 33px;
+        right: 50%;
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    @keyframes generate {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
